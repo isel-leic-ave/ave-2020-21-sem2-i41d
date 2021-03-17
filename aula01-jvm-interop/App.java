@@ -8,3 +8,7 @@ public class App {
         System.out.println("Hello World");
     }
 }
+
+class Student extends Object { public Student() { super(); }}
+class WorkerStudent extends Student {}
+class Account {}
