@@ -7,10 +7,22 @@ namespace Logger
     public class Log
     {
 
+        private readonly IPrinter printer; 
+
+        public Log(IPrinter p)
+        {
+            printer = p;
+        }
+
+        public Log() : this(new ConsolePrinter())
+        {
+            
+        }
+
         public void Info(object o)
         {
             string output = Inspect(o);
-            Console.WriteLine(output);
+            printer.Print(output);
         }
 
         private string Inspect(object o)
@@ -61,6 +73,12 @@ namespace Logger
             }
         }
 
-
+        private class ConsolePrinter : IPrinter
+        {
+            public void Print(string output)
+            {
+                Console.WriteLine(output);
+            }
+        }
     }
 }
