@@ -9,6 +9,6 @@ public class App {
     }
 }
 
-class Student extends Object { public Student() { super(); }}
+class Student {}
 class WorkerStudent extends Student {}
 class Account {}
