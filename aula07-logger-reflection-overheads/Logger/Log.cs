@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
@@ -8,6 +10,7 @@ namespace Logger
     {
 
         private readonly IPrinter printer; 
+        private readonly Dictionary<Type, List<MemberInfo>> members = new Dictionary<Type, List<MemberInfo>>();
 
         public Log(IPrinter p)
         {
@@ -21,39 +24,67 @@ namespace Logger
 
         public void Info(object o)
         {
-            string output = Inspect(o);
+            //
+            // Check if o is an IEnumerable
+            //
+            // Option 1: string output = typeof(IEnumerable).IsAssignableFrom(o.GetType())
+            // Option 2: string output = o is IEnumerable
+            // Option 3: 
+            IEnumerable seq = o as IEnumerable; // as is translated to isinst
+            string output = seq != null
+                ? Inspect(seq)
+                : Inspect(o);
             printer.Print(output);
+        }
+
+        private string Inspect(IEnumerable seq) {
+            StringBuilder str = new StringBuilder();
+            str.Append("Array of:\n");
+            foreach(object item in seq) {
+                str.Append("\t");
+                str.Append(Inspect(item));
+                str.Append("\n");
+            }
+            return str.ToString();
         }
 
         private string Inspect(object o)
         {
             string membersStr = LogMembers(o);
-
             return membersStr;
         }
-
 
         private string LogMembers(object o)
         {
             Type t = o.GetType();
 
             StringBuilder str = new StringBuilder();
-            MemberInfo[] members = t.GetMembers();
-            foreach (MemberInfo member in members)
+            foreach (MemberInfo member in GetMembers(t))
             {
-                if (ShouldLog(member))
-                {
-
-                    str.Append(member.Name);
-                    str.Append(": ");
-                    str.Append(GetValue(o, member));
-                    //str.Append(field.GetValue(o));
-                    str.Append(", ");
-                }
+                str.Append(member.Name);
+                str.Append(": ");
+                str.Append(GetValue(o, member));
+                //str.Append(field.GetValue(o));
+                str.Append(", ");
             }
             if(str.Length > 0) str.Length -= 2;
             return str.ToString();
 
+        }
+
+        private IEnumerable<MemberInfo> GetMembers(Type t)
+        {
+            // First checj if exist in members dictionary
+            List<MemberInfo> ms;
+            if(!members.TryGetValue(t, out ms)) {
+                ms = new List<MemberInfo>();
+                foreach(MemberInfo m in t.GetMembers()) {
+                    if(ShouldLog(m))
+                        ms.Add(m);
+                }
+                members.Add(t, ms);
+            }
+            return ms;
         }
 
         private bool ShouldLog(MemberInfo m)
