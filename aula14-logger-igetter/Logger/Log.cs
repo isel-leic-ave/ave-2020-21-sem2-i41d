@@ -10,7 +10,7 @@ namespace Logger
     {
 
         private readonly IPrinter printer; 
-        private readonly Dictionary<Type, List<MemberInfo>> members = new Dictionary<Type, List<MemberInfo>>();
+        private readonly Dictionary<Type, List<IGetter>> members = new Dictionary<Type, List<IGetter>>();
 
         public Log(IPrinter p)
         {
