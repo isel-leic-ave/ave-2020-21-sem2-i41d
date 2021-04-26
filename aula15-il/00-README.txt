@@ -1,0 +1,1 @@
+Create an .exe with: ilasm App.il
