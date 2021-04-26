@@ -59,12 +59,11 @@ namespace Logger
             Type t = o.GetType();
 
             StringBuilder str = new StringBuilder();
-            foreach (MemberInfo member in GetMembers(t))
+            foreach (IGetter member in GetMembers(t)) // Compilador de C# => cast explicito de IGetter para MemberInfo
             {
-                str.Append(member.Name);
+                str.Append(member.GetName());
                 str.Append(": ");
-                str.Append(GetValue(o, member));
-                //str.Append(field.GetValue(o));
+                str.Append(member.GetValue(o));
                 str.Append(", ");
             }
             if(str.Length > 0) str.Length -= 2;
@@ -72,44 +71,57 @@ namespace Logger
 
         }
 
-        private IEnumerable<MemberInfo> GetMembers(Type t)
+        private IEnumerable<IGetter> GetMembers(Type t)
         {
             // First checj if exist in members dictionary
-            List<MemberInfo> ms;
+            List<IGetter> ms;
             if(!members.TryGetValue(t, out ms)) {
-                ms = new List<MemberInfo>();
+                ms = new List<IGetter>();
                 foreach(MemberInfo m in t.GetMembers()) {
-                    if(ShouldLog(m))
-                        ms.Add(m);
+                    IGetter im;
+                    if(ShouldLog(m, out im))
+                    {
+                        ms.Add(im);
+                    }
                 }
                 members.Add(t, ms);
             }
             return ms;
         }
 
-        private bool ShouldLog(MemberInfo m)
+        /// <summary>
+        /// Validate if that member m should be logged, i.e. it must have a ToLog annotation
+        /// and be a field or a parameterless method.
+        /// Also it may return an instance of GetterField or GetterMethod.
+        /// </summary>
+        private bool ShouldLog(MemberInfo m, out IGetter getter)
         {
+            getter = null;
             /**
              * Check if it is annotated with ToLog
              */
-            // Option 1: 
-            // Object attr = Attribute.GetCustomAttribute(m,typeof(ToLogAttribute));
-            // if(attr == null) return false;
-            // Option 2: 
-            // object[] attrs = m.GetCustomAttributes(typeof(ToLogAttribute), true);
-            // if(attrs.Length == 0) return false;
-            // Option 3: 
             if(!Attribute.IsDefined(m,typeof(ToLogAttribute))) return false;
             /**
              * Check if it is a Field
              */
-            if(m.MemberType == MemberTypes.Field) return true;
+            if(m.MemberType == MemberTypes.Field)
+            {
+                getter = new GetterField((FieldInfo) m);
+                return true;
+            }
             /**
              * Check if it is a parameterless method
              */
-            return m.MemberType == MemberTypes.Method 
-                && (m as MethodInfo).GetParameters().Length == 0;
+            if(m.MemberType == MemberTypes.Method  && (m as MethodInfo).GetParameters().Length == 0)
+            {
+                getter = new GetterMethod((MethodInfo) m);
+                return true;
+            }
+            return false;
         }
+        
+        /// Suppressed in optimized version of Logger
+        /*
         private object GetValue(object target, MemberInfo m) {
             switch(m.MemberType)
             {
@@ -121,6 +133,7 @@ namespace Logger
                     throw new InvalidOperationException("Non properly member for logging!");
             }
         }
+        */
 
         private class ConsolePrinter : IPrinter
         {
