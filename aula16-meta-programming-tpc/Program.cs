@@ -24,7 +24,7 @@ namespace aula16_meta_programming
             object other = Activator.CreateInstance(dynType, new object[]{9}); 
             res = dynType
                     .GetMethod("MyMethod", new Type[]{dynType})
-                    .Invoke(obj, new object[]{5});
+                    .Invoke(obj, new object[]{other});
             Console.WriteLine("new MyDynamicType(7).MyMethod(new MyDynamicType(9)) = " + res);
         }
         private static Type BuildDynamicAssemblyAndType()
