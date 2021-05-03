@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Logger\Logger.csproj" />
-    <ProjectReference Include="..\App\App.csproj" />
   </ItemGroup>
 
 </Project>
