@@ -30,7 +30,24 @@ namespace Logger.Tests
 
             // Assert
             Assert.Equal(
-                "GetModule: 11,4017542509914, x: 7",
+                "x: 7, y: 9",
+                printer.buffer.ToString()
+            );
+        }
+        [Fact]
+        public void TestLogDynamic()
+        {
+            // Arrange
+            Point p = new Point(7,9);
+            BufferPrinter printer = new BufferPrinter();
+            LogDynamic log = new LogDynamic(printer);
+
+            // Act
+            log.Info(p);
+
+            // Assert
+            Assert.Equal(
+                "x: 7, y: 9",
                 printer.buffer.ToString()
             );
         }

@@ -26,26 +26,32 @@ public class DynamicIGetterInstanceCreator
         assemblyBuilder.Save(assemblyName + ".dll");
     }
 
-    public IGetter CreateIGetterFor(Type targetType, string memberName)
+    /*
+     * 1. Create a new implementation of IGetter for member memberName in domain type targetType
+     * 2. Creates an instance of that type created in 1.
+     */
+    public IGetter CreateIGetterFor(Type targetType, MemberInfo member)
     {
-        Type getterType = BuildDynamicGetterTypeFor(targetType, memberName);
+        if(member.MemberType != MemberTypes.Field)
+            throw new InvalidOperationException("LogDynamic does not support other kind of members beyond Fields like " + member.Name);
+        Type getterType = BuildDynamicGetterTypeFor(targetType, (FieldInfo) member);
         IGetter getter = (IGetter)Activator.CreateInstance(getterType, new object[] {  });
         return getter;
     }
 
 
-    private Type BuildDynamicGetterTypeFor(Type targetType, string memberName) {
-        string typeName = targetType.Name + memberName + "Getter";
+    private Type BuildDynamicGetterTypeFor(Type targetType, FieldInfo field) {
+        string typeName = targetType.Name + field.Name + "Getter";
         TypeBuilder typeBuilder = moduleBuilder.DefineType(typeName, TypeAttributes.Public, typeof(GetterBase));
 
-        AddConstructor(typeBuilder, memberName);
-        AddGetValue(typeBuilder, targetType, memberName);
+        AddConstructor(typeBuilder, field);
+        AddGetValue(typeBuilder, targetType, field);
 
         return typeBuilder.CreateType();
     }
 
 
-    private void AddConstructor(TypeBuilder typeBuilder, string memberName) {
+    private void AddConstructor(TypeBuilder typeBuilder, FieldInfo field) {
         Type[] parameterTypes = { };
         ConstructorBuilder constr = typeBuilder.DefineConstructor(MethodAttributes.Public, CallingConventions.Standard, parameterTypes);
 
@@ -54,26 +60,25 @@ public class DynamicIGetterInstanceCreator
         ILGenerator ctorIl = constr.GetILGenerator();
 
         ctorIl.Emit(OpCodes.Ldarg_0);
-        ctorIl.Emit(OpCodes.Ldstr, memberName);
+        ctorIl.Emit(OpCodes.Ldstr, field.Name);
         ctorIl.Emit(OpCodes.Call, baseConstructor);
         ctorIl.Emit(OpCodes.Ret);
     }
 
-    private void AddGetValue(TypeBuilder typeBuilder, Type targetType,  string memberName) {
+    private void AddGetValue(TypeBuilder typeBuilder, Type targetType,  FieldInfo field) {
         MethodBuilder mb = typeBuilder.DefineMethod(
             "GetValue", 
             MethodAttributes.Public | MethodAttributes.Virtual | MethodAttributes.HideBySig, 
             typeof(object), 
             new Type[] { typeof(object) }
         );
-        FieldInfo targetField = targetType.GetField(memberName);
 
         ILGenerator ilGen = mb.GetILGenerator();
         ilGen.Emit(OpCodes.Ldarg_1);
         ilGen.Emit(OpCodes.Castclass, targetType);
-        ilGen.Emit(OpCodes.Ldfld, targetField);
-        if(targetField.FieldType.IsPrimitive) {
-            ilGen.Emit(OpCodes.Box, targetField.FieldType);
+        ilGen.Emit(OpCodes.Ldfld, field);
+        if(field.FieldType.IsPrimitive) {
+            ilGen.Emit(OpCodes.Box, field.FieldType);
         }
         ilGen.Emit(OpCodes.Ret);
     }

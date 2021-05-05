@@ -1,11 +1,12 @@
 public class Point{
     [ToLog] public readonly int x;
-    public readonly int y;
+    [ToLog] public readonly int y;
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
-    [ToLog("Blue and White")] [ToLog] [ToLog]public double GetModule() {
+    // [ToLog("Blue and White")] [ToLog] [ToLog]
+    public double GetModule() {
             return System.Math.Sqrt(x*x + y*y);
     }
 
