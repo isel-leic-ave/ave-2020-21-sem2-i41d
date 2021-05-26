@@ -1,12 +1,42 @@
 ﻿using System;
+using System.Text;
 using Logger;
 
 namespace App
 {
+    class BufferPrinter : IPrinter
+    {
+        public StringBuilder buffer = new StringBuilder();
+        public void Print(string output)
+        {
+            buffer.Append(output);
+        }
+    }
     class Program
     {
+        static readonly BufferPrinter printer = new BufferPrinter();
+        static readonly Log logReflect = new Log(printer);
+        static readonly LogDynamic logDynamic = new LogDynamic(printer);
+        static readonly Student maria = new Student(763547, "Maria Papoila", 3547, "maria");
+            
 
         static void Main(string[] args)
+        {
+            NBench.Bench(Program.BenchLogReflectionStudent);
+            NBench.Bench(Program.BenchLogDynamicStudent);
+        }
+
+        public static void BenchLogReflectionStudent() {
+            printer.buffer.Clear();
+            logReflect.Info(maria);
+        }
+        public static void BenchLogDynamicStudent() {
+            printer.buffer.Clear();
+            logDynamic.Info(maria);
+        }
+
+
+        static void Demo()
         {
             //
             // Domain objects
