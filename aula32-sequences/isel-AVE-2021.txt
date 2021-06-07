@@ -1,0 +1,145 @@
+22575;Manuel Luís Cunha Martins;TLI41N
+24538;Marta Isabel Cruz Fernandes;TLI42D
+26349;Joaquim Isaías de Oliveira Monteiro;TLI4NXST
+26691;José António Vieira Matos;TLI4DXST
+29621;David Manuel Brazuna Tavares Gomes;TLI41N
+36855;Michael Louis Ferreira Mascoli;TLI4NXST
+36891;Hugo José Trigueiro de Carvalho;TLI41D
+38585;JOÃO RICARDO MATIAS ROGÉRIO;TLI4NXST
+38836;Fábio Galvão;TLI4NXST
+38858;Miguel Ângelo Teixeira Lourenço;TLI4NXST
+39156;Miguel Mendes de Oliveira;TLI41N
+39171;Pedro Miguel Cortiçada Nova;TLI41D
+39207;Alexandre Filipe Cardoso Pereira Marques;TLI41N
+39260;David Alexandre Teixeira de Carvalho;TLI41N
+39642;Ginquel Alexandre da Costa Moreira;TLI41N
+40606;Gonçalo  de Castro Antunes;TLI41N
+40623;TIAGO ALEXANDRE COSTA FERNANDES;TLI41D
+40913;João Carlos Máximo Ferreira;TLI41N
+41073;MARCO ANTÓNIO DE ALMEIDA ROCHA;TLI41N
+41412;VALTER HUGO DE SOUSA E ANDRADE ESTEVES;TLI41N
+41481;Diogo Miguel Simões Baptista;TLI41N
+41504;DIOGO GONÇALVES BICHO;TLI41N
+41900;Beatriz Isabel Fernandes Andrade;TLI42D
+42134;Francisco Manuel Martel de Melo;TLI41N
+42154;João Manuel Carapinha Correia;TLI41N
+42158;Diogo Miguel dos Santos Gonçalves;TLI41N
+42525;Tiago Manuel da Silva Duarte;TLI41N
+43508;Diogo Miguel Ribeiro Cardoso;TLI41N
+43509;Daniel Ferreira do Amaral Patrício;TLI41D
+43544;Filipe Leonardo Montoito Costa;TLI41D
+43567;André Duarte Vizinha;TLI42D
+43583;Ruben Batalha Duarte;TLI42D
+43584;Pedro Daniel Carregueiro Miranda;TLI41N
+43589;João Miguel Lapa Viegas;TLI41N
+43590;Inês Filipa Afonso Nunes;TLI41N
+43594;Ricardo Jorge Hilário Rodrigues;TLI41N
+43597;Marco Filipe da Silva Borges;TLI41D
+44598;André Luís Alves Quintela de Oliveira;TLI41N
+44771;Jorge Parreiras Reis;TLI41N
+44776;João Maria Parrulas Gomes;TLI42D
+44780;Francisco José Fouto Martins;TLI42D
+44786;Gonçalo Duarte Rodrigues Prieto;TLI42D
+44789;Alexandre Santos Rocha;TLI42D
+44790;Guilherme Ventura Belo Esteves Alves;TLI41D
+44796;Rui Manuel Oliveira Cunha;TLI41D
+44806;Raul Jose Correia dos Santos;TLI42D
+44807;Filipe Ramos Mendes;TLI42D
+44828;Diogo Miguel Faria Alfaiate Monteiro;TLI42D
+44829;Délcio Giovanny Borges Vasconcelos Augusto;TLI42D
+44832;Hugo Sousa Martins;TLI42D
+44834;Gonçalo Filipe Gonçalves Bartolomeu;TLI42D
+44835;Pedro Alexandre Capão Ramalho da Silva;TLI4DXST
+44838;Leandro Gonçalves Ferreira Balouta;TLI42D
+44841;Rafael Jorge Martinho Dias;TLI4DXST
+44860;Inês Garcia Franco;TLI42D
+44867;António José Paraíso Eusébio;TLI41N
+44869;João Alves Mendes;TLI4DXST
+44873;Paulo Francisco de Ávila Ferraz da Rosa;TLI41D
+44875;Inês Filipa Alves Silva;TLI41D
+44876;Pedro Henrique Muzachio Castanheira;TLI41D
+44880;Ricardo Miguel Gonçalves Tomé;TLI41N
+44885;Miguel Ângelo Gomes Claro;TLI42D
+44999;Bartiskovley Navriska Bratsha Sverilev;TLI42D
+45094;Pedro Miguel Fernandes Correia;TLI42D
+45371;Gonçalo André Louro Cesário Costa;TLI42D
+45373;Pedro Miguel da Silva Ribeiro;TLI42D
+45376;Diogo de Jesus Coutinho Martins Chirôndio;TLI42D
+45664;Rodrigo Beirão Cardoso;TLI42D
+45666;Filipe de Figueiredo Dias;TLI4DXST
+45826;Frederico Alexandre Água Ribeiro da Cunha;TLI41D
+45827;Daniel Filipe Henriques Azevedo;TLI42D
+45836;Bruno Filipe Castanheira Costa;TLI41N
+46002;Luís Pedro Libânio Duarte;TLI41D
+46017;Vasco Fernandes Lourenço;TLI42D
+46023;Jorge Emanuel Cardoso Pires;TLI4DXST
+46024;Sofia Cardoso Costa;TLI41N
+46029;Sandro Ribeiro Marques;TLI42D
+46033;Marco Antonio Teixeira Duarte;TLI41D
+46052;Daniel André Caseiro;TLI41D
+46054;Bernardo Miguel Mira Camarate;TLI41D
+46062;David Monteiro Marques;TLI41D
+46063;Miguel Borges Guerreiro Dourado;TLI41D
+46067;Tiago Jorge Pestana Neves;TLI41D
+46068;Pedro Miguel Ferreira Reis;TLI4DXST
+46071;Fernando Paulo Chorão Fragateiro;TLI42D
+46073;ivo pacheco;TLI41D
+46081;Dinis Leitão Laranjeira;TLI42D
+46084;Diogo Filipe Gregório Fernandes;TLI42D
+46086;Tiago Mateus Carvalho;TLI41N
+46090;Cátia Marina Soares Abreu;TLI41D
+46100;David Monteiro Lopes;TLI42D
+46103;Rodrigo Amaral Pita Palma da Luz;TLI41D
+46108;João Eduardo António Balsinha;TLI41D
+46109;João Miguel Lopes dos Santos Cravo;TLI41D
+46112;Tiago Filipe Luis Alves;TLI41D
+46115;Sebastião Vilarinho Cachado Flores Correia;TLI41D
+46147;Tiago José Loureiro Pilaro;TLI4DXST
+46432;Filipa Maria Barata Machado;TLI41D
+46528;Afonso Caetano Lopes de Gouveia Vilalobos;TLI42D
+46539;João André de Sousa Remédios;TLI42D
+46912;Martim Rodrigues Francisco;TLI42D
+46934;Policarpo Domingos Cassule;TLI41N
+46971;Diogo Jorge de Castro Neto Fernandes;TLI41N
+46973;Jorge Alexandre Luzio Simões;TLI41N
+46974;Luis António Carvalho Alves;TLI41N
+46976;Paulo Jorge da Cruz da Eufémia;TLI41N
+47135;João Pedro Francela Lopes;TLI42D
+47176;João Filipe Miguel da Costa e Silva;TLI42D
+47178;Gonçalo Filipe Inácio Romba;TLI42D
+47179;Afonso Miguel Mira Cabaço;TLI42D
+47180;Guilherme Filipe Vasconcelos Guedes Cirilo;TLI41D
+47181;João Pedro Roque Bento Ferreira Assunção;TLI42D
+47189;David Paulo Lume Soares;TLI41D
+47192;Alexandre Marques Silva;TLI42D
+47193;João Pedro Bogalho Arcanjo;TLI41D
+47196;João Carlos Monteiro Rocha;TLI41D
+47199;Tiago Luis Lima da Silva;TLI41N
+47200;Diogo Miguel Poças Ferreira;TLI41D
+47203;Bernardo Filipe Martins Fragoso;TLI41D
+47204;Miguel Jorge Bacelar Marques;TLI42D
+47218;Pedro Martim Mendes Alves Casimiro Gardete;TLI41D
+47219;Henrique Duarte Ferreira Fonseca;TLI42D
+47220;João Francisco Fernandes da Silva Nunes;TLI42D
+47221;Joao Miguel Costa Rodrigues;TLI41N
+47222;Alexandre Miguel Oliveira Luís;TLI42D
+47231;David António Wong Cascalho Carreiro Ramos;TLI41D
+47232;Joana Catarina Gaspar Pedroso;TLI41N
+47235;Pedro Daniel Pinto Viana de Lemos;TLI4DXST
+47246;Pedro Carneiro Batista;TLI42D
+47248;Diogo Filipe Carvalhosa Amorim;TLI41D
+47255;Gonçalo Almeida Silva;TLI41D
+47256;Diogo Henrique Mendes Afonso Novo;TLI41D
+47257;Patrícia Sofia Teixeira dos Santos;TLI41D
+47262;Francisco Duarte da Palma Mestre Amaral Ludovico;TLI41D
+47265;Gonçalo Jorge Carvalheira de Albuquerque;TLI41D
+47266;Sérgio Augusto Bernardino;TLI4DXST
+47269;Douglas Alexandre Ribeiro Incáo;TLI41D
+47270;Miguel Gustavo Beirão de Oliveira e Sousa;TLI41D
+47273;Miguel Moreira Lopes Seleiro;TLI41D
+47280;António Miguel Matafome Antunes;TLI41D
+47611;Tiago Miguel Pestana Conceição;TLI41N
+47612;Tiago José Leal Ribeiro;TLI41N
+47717;Lourenço Gonçalves Vala;TLI42D
+47722;David Pereira Lourenço;TLI42D
+48084;Pedro Daniel Diz Pinela;TLI41N
