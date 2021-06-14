@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Text;
 using System.IO;
-
+using System.Collections.Generic;
 
 class AppQueries4 {
 
@@ -39,7 +39,11 @@ class AppQueries4 {
     }
 
     static IEnumerable Distinct(IEnumerable src) {
-        return src;
+        HashSet<object> set = new HashSet<object>();
+        foreach(object o in src)
+            set.Add(o);
+
+        return set;
     }
     
     
