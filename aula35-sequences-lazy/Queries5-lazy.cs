@@ -24,13 +24,8 @@ class AppQueries5 {
         return new ConvertIEnumerable(src, mapper);
     }
     
-    static IEnumerable Filter(IEnumerable stds, PredicateDelegate pred) {
-        IList res = new ArrayList();
-        foreach (object o in stds) {
-            if (pred(o)) 
-                res.Add(o);
-        }
-        return res;
+    static IEnumerable Filter(IEnumerable src, PredicateDelegate pred) {
+        return new FilterIEnumerable(src, pred);
     }
 
     static IEnumerable Distinct(IEnumerable src) {
