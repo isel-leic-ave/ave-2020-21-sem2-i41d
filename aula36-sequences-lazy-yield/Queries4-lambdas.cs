@@ -46,6 +46,15 @@ class AppQueries4 {
         return set;
     }
     
+    static IEnumerable Take(IEnumerable src, int nr) {
+        IList res = new ArrayList();
+        int count = 0;
+        foreach (object o in src) {
+            if (++count > nr) break;
+            res.Add(o);
+        }
+        return res;
+    }
     
     /**
      * Representa o domínio e o cliente App
@@ -54,7 +63,7 @@ class AppQueries4 {
     public static void Run()
     {
         IEnumerable names =
-            Distinct(
+            Take(
                 Convert(              // Seq<String>
                     Filter(           // Seq<Student>
                         Filter(       // Seq<Student>
@@ -70,9 +79,10 @@ class AppQueries4 {
                                 return ((Student) o).Number > 47000;
                             }),
                         o => ((Student) o).Name.Split(" ")[0].StartsWith("D")),
-                    o => ((Student) o).Name.Split(" ")[0])
-                ); // Distinct
-    
+                    o => ((Student) o).Name.Split(" ")[0]),
+                1);
+        Console.WriteLine("------------ Listing Eager Result --------------------");
+        Console.ReadLine();
         foreach(object l in names)
             Console.WriteLine(l);
     }

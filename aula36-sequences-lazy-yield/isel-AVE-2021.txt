@@ -1,8 +1,9 @@
+48000;David Manuel Brazuna Tavares Gomes;TLI41N
 22575;Manuel Luís Cunha Martins;TLI41N
+49000;Dionisio Alexandre Teixeira de Carvalho;TLI41N
 24538;Marta Isabel Cruz Fernandes;TLI42D
 26349;Joaquim Isaías de Oliveira Monteiro;TLI4NXST
 26691;José António Vieira Matos;TLI4DXST
-48000;David Manuel Brazuna Tavares Gomes;TLI41N
 36855;Michael Louis Ferreira Mascoli;TLI4NXST
 36891;Hugo José Trigueiro de Carvalho;TLI41D
 38585;JOÃO RICARDO MATIAS ROGÉRIO;TLI4NXST
@@ -11,4 +12,3 @@
 39156;Miguel Mendes de Oliveira;TLI41N
 39171;Pedro Miguel Cortiçada Nova;TLI41D
 39207;Alexandre Filipe Cardoso Pereira Marques;TLI41N
-39260;David Alexandre Teixeira de Carvalho;TLI41N

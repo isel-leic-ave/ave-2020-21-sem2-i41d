@@ -41,7 +41,7 @@ class AppQueries5 {
      * Representa o domínio e o cliente App
      */
  
-    static void Main()
+    public static void Run()
     {
         IEnumerable names =
             Distinct(
@@ -52,10 +52,13 @@ class AppQueries5 {
                                 Lines("isel-AVE-2021.txt"),  // Seq<String>
                                 o => { 
                                     object ret = Student.Parse((string) o); 
-                                    Console.WriteLine("Convert function called with returned {0}", ret); 
+                                    Console.WriteLine("Convert to Student"); 
                                     return ret;  
                                 }),
-                            o => ((Student) o).Number > 47000),
+                            o => {
+                                Console.WriteLine("Filtering... "); 
+                                return ((Student) o).Number > 47000;
+                            }),
                         o => ((Student) o).Name.Split(" ")[0].StartsWith("D")),
                     o => ((Student) o).Name.Split(" ")[0])
                 ); // Distinct
