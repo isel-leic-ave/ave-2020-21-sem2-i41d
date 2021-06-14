@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using System.Text;
 using System.IO;
+using System.Collections.Generic;
 
-
-class AppQueries3 {
+class AppQueries5 {
 
     static IEnumerable Lines(string path)
     {
@@ -21,21 +21,24 @@ class AppQueries3 {
     }
      
     static IEnumerable Convert(IEnumerable src, FunctionDelegate mapper) {
-        IList res = new ArrayList();
-        foreach (object o in src) {
-            res.Add(mapper(o));
-            //res.Add(mapper.Invoke(o));
-        }
-        return res;
+        return new ConvertIEnumerable(src, mapper);
     }
     
-    static IEnumerable Filter(IEnumerable stds, Predicate pred) {
+    static IEnumerable Filter(IEnumerable stds, PredicateDelegate pred) {
         IList res = new ArrayList();
         foreach (object o in stds) {
-            if (pred.Invoke(o)) 
+            if (pred(o)) 
                 res.Add(o);
         }
         return res;
+    }
+
+    static IEnumerable Distinct(IEnumerable src) {
+        HashSet<object> set = new HashSet<object>();
+        foreach(object o in src)
+            set.Add(o);
+
+        return set;
     }
     
     
@@ -43,32 +46,27 @@ class AppQueries3 {
      * Representa o domínio e o cliente App
      */
  
-    static void Main3()
+    static void Main()
     {
-        IEnumerable names = 
+        IEnumerable names =
+            Distinct(
                 Convert(              // Seq<String>
                     Filter(           // Seq<Student>
                         Filter(       // Seq<Student>
                             Convert(  // Seq<Student> 
                                 Lines("isel-AVE-2021.txt"),  // Seq<String>
-                                //new FunctionDelegate(AppQueries3.ToStudent)),
-                                AppQueries3.ToStudent),
-                            new FilterNumberGreaterThan(47000)),
-                        new FilterNameStartsWith("D")),
-                    AppQueries3.ToFirstName);
+                                o => { 
+                                    object ret = Student.Parse((string) o); 
+                                    Console.WriteLine("Convert function called with returned {0}", ret); 
+                                    return ret;  
+                                }),
+                            o => ((Student) o).Number > 47000),
+                        o => ((Student) o).Name.Split(" ")[0].StartsWith("D")),
+                    o => ((Student) o).Name.Split(" ")[0])
+                ); // Distinct
     
         foreach(object l in names)
             Console.WriteLine(l);
-    }
-
-    private static object ToStudent(object o)
-    {
-        return Student.Parse((string) o);
-    }
-
-    private static object ToFirstName(object o)
-    {
-        return ((Student) o).Name.Split(" ")[0];
     }
 }
 

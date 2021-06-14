@@ -51,7 +51,7 @@ class AppQueries4 {
      * Representa o domínio e o cliente App
      */
  
-    static void Main()
+    static void Run()
     {
         IEnumerable names =
             Distinct(
