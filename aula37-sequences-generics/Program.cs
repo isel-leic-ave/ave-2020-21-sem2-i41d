@@ -19,18 +19,7 @@ public class Program {
     static void Main() {
         // AppQueries4.Run();
         // AppQueries5.Run();
-        // AppQueries6.Run();
-        IEnumerator nrs = Numbers().GetEnumerator();
-        Console.WriteLine(nrs.MoveNext()); // true
-        Console.WriteLine(nrs.Current);    // 11
-        Console.WriteLine(nrs.Current);    // 11
-        Console.WriteLine(nrs.MoveNext()); // true
-        Console.WriteLine(nrs.Current);    // 17
-        Console.WriteLine(nrs.MoveNext()); // true
-        Console.WriteLine(nrs.Current);    // 23
-        Console.WriteLine(nrs.MoveNext()); // false;
-        Console.WriteLine(nrs.Current);    // Exception
-
+        AppQueries7.Run();
     }
 
 }

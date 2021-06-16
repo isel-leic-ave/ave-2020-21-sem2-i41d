@@ -53,6 +53,8 @@ class AppQueries6 {
  
     public static void Run()
     {
+        IEnumerable items = Convert(Lines("isel-AVE-2021.txt"), o => Student.Parse((string) o));
+
         IEnumerable names =
             Take(
                 Convert(              // Seq<String>
